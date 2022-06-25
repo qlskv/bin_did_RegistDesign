@@ -1,0 +1,238 @@
+//
+//  ixcPredefConst.h
+//  ShuffleKey
+//
+//  Created by Ko Jaewan on 2015. 6. 10..
+//
+//
+
+#ifndef __ixcPredefConst_h__
+#define __ixcPredefConst_h__
+
+#define MAX_CONFIG_COUNT    3
+
+#define FUNC_KEY_CODE_SHIFT     @"shift"
+#define FUNC_KEY_CODE_BACK      @"back"
+#define FUNC_KEY_CODE_MODE      @"trm"
+#define FUNC_KEY_CODE_SPACE     @"space"
+#define FUNC_KEY_CODE_REMAP     @"rdm"
+#define FUNC_KEY_CODE_HIDE      @"hide"
+#define FUNC_KEY_CODE_DONE      @"done"
+#define FUNC_KEY_CODE_CANCEL    @"cancel"
+#define FUNC_KEY_CODE_RESET     @"reset"
+#define NORMAL_KEY_CODE_GAP     @"gap"
+
+/*
+ * 셔플 타입
+ */
+typedef enum {
+    kSHUFFLE_TYPE_EXTEND = 0,
+    kSHUFFLE_TYPE_GAP_IMAGE,
+    kSHUFFLE_TYPE_GAP_MARGIN,
+    kSHUFFLE_TYPE_GAP_MARGIN_EXTEND,
+    kOUT_OF_SHUFFLE_TYPE,
+} t_SHUFFLE_TYPE;
+
+// 주의) PUSH 이미지의 index 는 NORMAL 이미지 index 의 +1 이어야 한다.
+enum {
+    kKEY_BG_IMAGE_1ST_LINE = 0,
+    kKEY_BG_IMAGE_1ST_LINE_PUSH,
+    kKEY_BG_IMAGE_OTHER_LINE,
+    kKEY_BG_IMAGE_OTHER_LINE_PUSH,
+    kKEY_BG_IMAGE_FUNC_NORMAL,
+    kKEY_BG_IMAGE_FUNC_PUSH,
+    kKEY_BG_IMAGE_FUNC_ACTIVE,
+    kKEY_BG_IMAGE_FUNC_ACTIVE_PUSH,
+    kKEY_BG_IMAGE_FUNC_SHIFT_NORMAL,
+    kKEY_BG_IMAGE_FUNC_SHIFT_PUSH,
+    kKEY_BG_IMAGE_FUNC_BACKSPACE_NORMAL,
+    kKEY_BG_IMAGE_FUNC_BACKSPACE_PUSH,
+    kKEY_BG_IMAGE_FUNC_MODE_NORMAL,
+    kKEY_BG_IMAGE_FUNC_MODE_PUSH,
+    kKEY_BG_IMAGE_FUNC_SPACE_NORMAL,
+    kKEY_BG_IMAGE_FUNC_SPACE_PUSH,
+    kKEY_BG_IMAGE_FUNC_REMAP_NORMAL,
+    kKEY_BG_IMAGE_FUNC_REMAP_PUSH,
+    kKEY_BG_IMAGE_FUNC_HIDE_NORMAL,
+    kKEY_BG_IMAGE_FUNC_HIDE_PUSH,
+    kKEY_BG_IMAGE_FUNC_DONE_NORMAL,
+    kKEY_BG_IMAGE_FUNC_DONE_PUSH,
+    kKEY_BG_IMAGE_FUNC_CANCEL_NORMAL,
+    kKEY_BG_IMAGE_FUNC_CANCEL_PUSH,
+    kKEY_BG_IMAGE_FUNC_RESET_NORMAL,
+    kKEY_BG_IMAGE_FUNC_RESET_PUSH,
+    kOUT_OF_KEY_BG_IMAGE,
+    kCOUNT_OF_KEY_BG_IMAGE = kOUT_OF_KEY_BG_IMAGE
+};
+
+/*
+ * 스페이스 버튼 타입
+ */
+typedef enum {
+    kSPACE_BTN_TYPE_FUNCTION = 0,
+    kSPACE_BTN_TYPE_NORMAL,
+    kOUT_OF_SPACE_BTN_TYPE,
+}t_SPACE_BTN_TYPE;
+
+
+/*
+ *  MixedInputField format type character
+ */
+typedef enum {
+    kFORMAT_TYPE_CHAR_SPECIAL_CHARACTER = 0,
+    kFORMAT_TYPE_PASSWORD_CHARACTER,
+    kFORMAT_TYPE_NORAML_CHARACTER,
+    kOUT_OF_FORMAT_TYPE,
+}t_FORMAT_TYPE_CHAR;
+
+/*
+ * 키보드 타입
+ */
+typedef enum {
+    kKEYBOARD_LAYOUT_QWERTY = 0,
+    kKEYBOARD_LAYOUT_NUMBER,
+    kCOUNT_OF_KEY_LAYOUT
+} t_KEYBD_LAYOUT_TYPE;
+
+/*
+ * 키 종류
+ */
+typedef enum {
+    kKEY_TYPE_NORMAL = 0,
+    kKEY_TYPE_SHIFT,
+    kKEY_TYPE_BACKSPACE,
+    kKEY_TYPE_MODE,
+    kKEY_TYPE_SPACE,
+    kKEY_TYPE_REMAP,
+    kKEY_TYPE_HIDE,
+    kKEY_TYPE_DONE,
+    kKEY_TYPE_CANCEL,
+    kKEY_TYPE_RESET,
+    kOUT_OF_KEY_TYPE,
+    kCOUNT_OF_KEY_TYPE = kOUT_OF_KEY_TYPE
+}t_KEY_TYPE;
+
+/*
+ * 기능 키 종류
+ */
+typedef enum {
+    kFUNC_KEY_TYPE_SHIFT = 0,
+    kFUNC_KEY_TYPE_BACKSPACE,
+    kFUNC_KEY_TYPE_MODE,
+    kFUNC_KEY_TYPE_SPACE,
+    kFUNC_KEY_TYPE_REMAP,
+    kFUNC_KEY_TYPE_HIDE,
+    kFUNC_KEY_TYPE_DONE,
+    kFUNC_KEY_TYPE_CANCEL,
+    kFUNC_KEY_TYPE_RESET,
+    kOUT_OF_FUNC_KEY_TYPE,
+    kCOUNT_OF_FUNC_KEY_TYPE = kOUT_OF_FUNC_KEY_TYPE
+}t_FUNC_KEY_TYPE;
+
+/*
+ * 키 패드 방향
+ */
+typedef enum {
+    kORIENTATION_PORTRAIT = 0,
+    kORIENTATION_LANDSCAPE,
+    kOUT_OF_PAD_ORIENTATION
+} t_PAD_ORIENTATION;
+
+/*
+ * Accessibility 지원 언어
+ */
+typedef enum {
+    kACC_LANG_ENG = 0,
+    kACC_LANG_KOR,
+    kOUT_OF_ACC_LANG_TYPE,
+} t_ACC_LANG_TYPE;
+
+/*
+ * 입력값 런-타임 체크 정책 -> 삭제 예정 코드
+ */
+typedef enum {
+    kCHECK_POLICY_NONE =                        0,
+    kCHECK_POLICY_ONLY_ALPHABET =               0x00000001,
+    kCHECK_POLICY_ONLY_ALPHANUMERIC =           0x00000002,
+    kCHECK_POLICY_ONLY_PASSWORD_SYMBOL =        0x00000008,
+    kCHECK_POLICY_INPUT_TYPE_MASK =             0x0000000F,
+
+    kCHECK_POLICY_DUPLICATED_2CHAR =            0x00000010,
+    kCHECK_POLICY_DUPLICATED_3CHAR =            0x00000020,
+    kCHECK_POLICY_DUPLICATED_CHAR_MASK =        0x000000F0,
+    
+    kCHECK_POLICY_CONTINUOUS_3CHARS =           0x00000100,
+    kCHECK_POLICY_CONTINUOUS_4CHARS =           0x00000200,
+    kCHECK_POLICY_CONTINUOUS_CHAR_MASK =        0x00000F00,
+    
+    // 미지원
+    kCHECK_POLICY_MONTH =                       0x00001000,
+    kCHECK_POLICY_YEAR =                        0x00002000,
+    kCHECK_POLICY_MAX_NUMBER_MASK =             0x0000F000,
+    
+    // 미지원
+    kCHECK_POLICY_CUMSTOM_PATTERN =             0x00010000,
+    kCHECK_POLICY_CUMSTOM_MASK =                0x000F0000,
+} t_CHECK_POLICY;
+
+/*
+ * 입력(패스워드) 값 강도 체크 정책
+ */
+typedef enum {
+    kSTRENGTH_CHECK_POLICY_NONE =               0,
+    kSTRENGTH_CHECK_POLICY_ALPHABET_LOWER =     0x00000001,
+    kSTRENGTH_CHECK_POLICY_ALPHABET_UPPER =     0x00000002,
+    kSTRENGTH_CHECK_POLICY_ALPHABET =           0x00000004,
+    kSTRENGTH_CHECK_POLICY_NUMBER =             0x00000008,
+    kSTRENGTH_CHECK_POLICY_SPECIAL_CHAR=        0x00000010,
+    
+    kSTRENGTH_CHECK_POLICY_DUPLICATED_2CHAR =   0x00000020,
+    kSTRENGTH_CHECK_POLICY_DUPLICATED_3CHAR =   0x00000040,
+    kSTRENGTH_CHECK_POLICY_DUPLICATED_4CHAR =   0x00000080,
+    kSTRENGTH_CHECK_POLICY_DUPLICATED_5CHAR =   0x00000100,
+    kSTRENGTH_CHECK_POLICY_DUPLICATED_6CHAR =   0x00000200,
+    
+    kSTRENGTH_CHECK_POLICY_CONTINUOUS_2CHARS =  0x00000400,
+    kSTRENGTH_CHECK_POLICY_CONTINUOUS_3CHARS =  0x00000800,
+    kSTRENGTH_CHECK_POLICY_CONTINUOUS_4CHARS =  0x00001000,
+    kSTRENGTH_CHECK_POLICY_CONTINUOUS_5CHARS =  0x00002000,
+    kSTRENGTH_CHECK_POLICY_CONTINUOUS_6CHARS =  0x00004000,
+} t_STRENGTH_CHECK_POLICY;
+
+typedef enum {
+    kHAPTIC_MODE_LIGTH =                        0,
+    kHAPTIC_MODE_MEDIUM =                       1,
+    kHAPTIC_MODE_HEAVEY =                       2,
+    kOUT_OF_HAPTIC_MODE =                       3,
+} t_HAPTIC_MODE;
+
+typedef enum {
+    kANIMATION_TYPE_SLIDE_DOWN =                 0,
+    kANIMATION_TYPE_SLIDE_UP =                   1,
+    kOUT_OF_ANIMATION_TYPE
+} t_ANIMATION_TYPE;
+
+
+typedef enum {
+    eVALID_SUCCESS = 0,
+    eVALID_ERR_INCLUDE_STRING, // dddddd
+    
+    eOUT_OF_VALID_ERRCODE
+} t_VALIDATE_ERRCODE;
+
+
+/*
+ *
+ */
+typedef struct INPUT_ITEM_CONFIG {
+    int inputType; // Number PAD, QWERTY PAD
+    int shuffleType; // for Only QWRTY
+    struct {
+        unsigned long min;
+        unsigned long max;
+    } length;
+    BOOL secure;
+} t_INPUT_ITEM_CONFIG;
+
+#endif
+
